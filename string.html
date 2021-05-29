@@ -14,12 +14,21 @@
         function dq(x) {
             return "\"" + x.replace(/\"/g, "\"\"") + "\"";
         }
+        function udq(x) {
+            return x.replace(/\"\"/g, "\"");
+        }
     </script>
     <form oninput="y.value=dq(x.value)">
         <label for="x">Plain string</label>
         <input type="text" class="form-control" name="x" onkeypress="return event.keyCode != 13">
         <label for="y">Coq string</label>
         <pre><code><output name="y" for="x"></output></code></pre>
+    </form>
+    <form oninput="str.value=udq(coqstr.value)">
+        <label for="coqstr">Coq string</label>
+        <input type="text" class="form-control" name="coqstr" onkeypress="return event.keyCode != 13">
+        <label for="str">Plain string</label>
+        <pre><code><output name="str" for="coqstr"></output></code></pre>
     </form>
 </body>
 
